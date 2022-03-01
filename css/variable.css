@@ -1,4 +1,5 @@
 :root {
+    --black: rgba(0, 0, 0, 0.9);
     --expenses-color: rgba(255, 99, 71, 0.8);
     --income-color: rgba(30, 143, 255, 0.8);
 }
