@@ -132,18 +132,19 @@ main h2 {
     font-weight: 400;
 }
 
-.profit,
+.balance,
 .addItem {
     width: 100%;
     height: 5%;
 }
 
-.profit {
+.balance {
     color: var(--black);
 }
 
-.profit div {
+.balance div {
     margin-top: 10px;
+    font-size: 22px;
 }
 
 .addItem__form__input {
