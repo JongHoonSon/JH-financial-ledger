@@ -4,9 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JH-Financial-Ledger</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <header>
+        <h1>JH Financial Ledger</h1>
+    </header>
+    <main>
+        <div class="expenses-income">
+            <div class="expenses">
+                <h2>Expenses</h2>
+                <ul class="expenses-list">
+                    <li class="expenses-list__item" id="expenses-list__item-header">
+                        <span class="expenses-list__item__date">일자</span>
+                        <span class="expenses-list__item__title">내용</span>
+                        <span class="expenses-list__item__amount">금액</span>
+                    </li>
+                    <li class="expenses-list__item">
+                        <span class="expenses-list__item__date">3/1</span>
+                        <span class="expenses-list__item__title">우동</span>
+                        <span class="expenses-list__item__amount">5000원</span>
+                    </li>
+                    <li class="expenses-list__item">
+                        <span class="expenses-list__item__date">3/2</span>
+                        <span class="expenses-list__item__title">카레</span>
+                        <span class="expenses-list__item__amount">8000원</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="income">
+                <h2>Income</h2>
+                <ul class="income-list">
+                    <li class="income-list__item" id="income-list__item-header">
+                        <span class="income-list__item__date">일자</span>
+                        <span class="income-list__item__title">내용</span>
+                        <span class="income-list__item__amount">금액</span>
+                    </li>
+                    <li class="income-list__item">
+                        <span class="income-list__item__date">3/1</span>
+                        <span class="income-list__item__title">월급</span>
+                        <span class="income-list__item__amount">500000원</span>
+                    </li>
+                    <li class="income-list__item">
+                        <span class="income-list__item__date">3/2</span>
+                        <span class="income-list__item__title">길에서 주움</span>
+                        <span class="income-list__item__amount">50000원</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="profit">
+            <h2>Profit</h2>
+            <span>100,000 WON</span>
+        </div>
+        <div class="addItem">
+            <form class="addItem__form">
+                <input class="addItem__form__input" placeholder="금액을 입력하세요.">
+            </form>
+            <div class="addItem__form__btns">
+                <button class="addItem__form__btn__expenses">Expenses</button>
+                <button class="addItem__form__btn__income">Income</button>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

@@ -1,0 +1,179 @@
+@import url(variable.css);
+@import url(reset.css);
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 800;
+    background-color: rgba(172, 255, 47, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    background-color: rgba(0,0,0,0.3);
+    text-transform: uppercase;
+}
+
+
+main {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+main > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 50px;
+}
+
+main h2 {
+    text-transform: uppercase;
+}
+
+.expenses-income {
+    width: 100%;
+    height: 50%;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.income, 
+.expenses {
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    color: white;
+    padding: 20px 0px;
+}
+
+.expenses {
+    background-color: var(--expenses-color);
+    margin: 0px 20px 0px 0px;
+}
+
+.income {
+    background-color: var(--income-color);
+    margin: 0px 0px 0px 20px;
+}
+
+.expenses-list,
+.income-list {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    font-size: 12px;
+    overflow-y: hidden;
+}
+
+.expenses-list__item,
+.income-list__item {
+    display: flex;
+    align-items: center;
+}
+
+.expenses-list__item span,
+.income-list__item span {
+    margin: 5px 10px;
+    text-align: center;
+}
+
+.expenses-list__item span:first-child,
+.income-list__item span:first-child {
+    width: 33%;
+}
+
+.expenses-list__item span:nth-child(2),
+.income-list__item span:nth-child(2) {
+    width: 33%;
+}
+
+.expenses-list__item span:last-child,
+.income-list__item span:last-child {
+    width: 33%;
+}
+
+#expenses-list__item-header span,
+#income-list__item-header span {
+    color:black;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.profit,
+.addItem {
+    width: 100%;
+    height: 5%;
+}
+
+.profit span {
+    margin-top: 10px;
+}
+
+.addItem__form__input {
+    width: 200px;
+    height: 30px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+}
+
+.addItem__form__input::placeholder {
+    font-size: 14px;
+}
+
+.addItem__form__btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addItem__form__btn__expenses,
+.addItem__form__btn__income {
+    width: 100px;
+    height: 50px;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 50px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: white;
+}
+
+.addItem__form__btn__expenses:hover,
+.addItem__form__btn__income:hover {
+    cursor: pointer;
+}
+
+.addItem__form__btn__expenses {
+    background-color: var(--expenses-color);
+}
+.addItem__form__btn__income {
+    background-color: var(--income-color);
+}
