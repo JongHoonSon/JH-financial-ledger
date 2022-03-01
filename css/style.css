@@ -172,6 +172,16 @@ main h2 {
     align-items: center;
 }
 
+@keyframes scaler {
+    0% {
+        
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
 .addItem__form__btn__expenses,
 .addItem__form__btn__income {
     width: 100px;
@@ -189,6 +199,7 @@ main h2 {
 .addItem__form__btn__expenses:hover,
 .addItem__form__btn__income:hover {
     cursor: pointer;
+    animation: scaler 0.2s ease-in-out forwards;
 }
 
 .addItem__form__btn__expenses {
