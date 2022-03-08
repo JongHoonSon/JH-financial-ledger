@@ -182,7 +182,7 @@ main h2 {
     font-weight: 400;
 }
 
-.addItem__form__btns {
+.addItem__btns {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -198,8 +198,8 @@ main h2 {
     }
 }
 
-.addItem__form__btn__expense,
-.addItem__form__btn__income {
+.addItem__btn__income,
+.addItem__btn__expense {
     width: 130px;
     height: 50px;
     padding: 10px;
@@ -213,15 +213,15 @@ main h2 {
     box-shadow: var(--shadow);
 }
 
-.addItem__form__btn__expense:hover,
-.addItem__form__btn__income:hover {
+.addItem__btn__income:hover,
+.addItem__btn__expense:hover {
     cursor: pointer;
     animation: scaler 0.2s ease-in-out forwards;
 }
 
-.addItem__form__btn__expense {
+.addItem__btn__expense {
     background-color: var(--expense-color);
 }
-.addItem__form__btn__income {
+.addItem__btn__income {
     background-color: var(--income-color);
 }
