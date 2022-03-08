@@ -1,7 +1,7 @@
 :root {
     --black: rgba(0, 0, 0, 0.9);
     --white: rgba(255, 255, 255, 0.9);
-    --expenses-color: rgba(255, 99, 71, 0.8);
+    --expense-color: rgba(255, 99, 71, 0.8);
     --income-color: rgba(30, 143, 255, 0.8);
     --shadow: 0px 2px 2px 0px var(--black);
 }

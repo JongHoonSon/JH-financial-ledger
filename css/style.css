@@ -46,7 +46,7 @@ main h2 {
     text-transform: uppercase;
 }
 
-.expenses-income {
+.expense-income {
     width: 100%;
     height: 50%;
     flex-direction: row;
@@ -54,7 +54,7 @@ main h2 {
 }
 
 .income, 
-.expenses {
+.expense {
     width: 100%;
     height: 100%;
     border-radius: 50px;
@@ -72,13 +72,13 @@ main h2 {
     margin: 0px 20px 0px 0px;
 }
 
-.expenses {
-    background-color: var(--expenses-color);
+.expense {
+    background-color: var(--expense-color);
     margin: 0px 0px 0px 20px;
 }
 
 .income-list__title,
-.expenses-list__title {
+.expense-list__title {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -90,13 +90,13 @@ main h2 {
 }
 
 .income-list__title span, 
-.expenses-list__title span {
+.expense-list__title span {
     width: 33%;
     text-align: center;
 }
 
 .income-list, 
-.expenses-list {
+.expense-list {
     width: 100%;
     height: 100%;
     margin-top: 10px;
@@ -108,25 +108,25 @@ main h2 {
 }
 
 .income-list::-webkit-scrollbar, 
-.expenses-list::-webkit-scrollbar {
+.expense-list::-webkit-scrollbar {
     display: none;
 }
 
 .income-list__item,
-.expenses-list__item {
+.expense-list__item {
     display: flex;
     align-items: center;
 }
 
 .income-list__item span,
-.expenses-list__item span {
+.expense-list__item span {
     width: 33%;
     margin: 5px 10px;
     text-align: center;
 }
 
 .income-total,
-.expenses-total {
+.expense-total {
     margin-top: 10px;
     font-size: 22px;
     font-family: 'Black Han Sans', sans-serif;
@@ -137,7 +137,7 @@ main h2 {
     color: rgba(0, 0, 255, 0.6);
 }
 
-.expenses-total {
+.expense-total {
     color:rgba(255, 0, 0, 0.6);
 }
 
@@ -189,7 +189,7 @@ main h2 {
     }
 }
 
-.addItem__form__btn__expenses,
+.addItem__form__btn__expense,
 .addItem__form__btn__income {
     width: 130px;
     height: 50px;
@@ -204,14 +204,14 @@ main h2 {
     box-shadow: var(--shadow);
 }
 
-.addItem__form__btn__expenses:hover,
+.addItem__form__btn__expense:hover,
 .addItem__form__btn__income:hover {
     cursor: pointer;
     animation: scaler 0.2s ease-in-out forwards;
 }
 
-.addItem__form__btn__expenses {
-    background-color: var(--expenses-color);
+.addItem__form__btn__expense {
+    background-color: var(--expense-color);
 }
 .addItem__form__btn__income {
     background-color: var(--income-color);
