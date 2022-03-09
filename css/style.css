@@ -142,6 +142,17 @@ main h2 {
     opacity: 0.8;
 }
 
+.income-list__item > button > img,
+.expense-list__item > button > img {
+    width: 20px;
+    height: 20px;
+}
+
+.income-list__item > button > img:hover,
+.expense-list__item > button > img:hover {
+    cursor: pointer;
+}
+
 .income-total,
 .expense-total {
     margin-top: 10px;
