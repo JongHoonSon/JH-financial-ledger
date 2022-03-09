@@ -77,6 +77,14 @@ function addItem(event) {
     $newListItemButton.classList.add(`${classNamePrefix}-list__item__delete-btn`);
     $newListItemButtonImage.classList.add(`${classNamePrefix}-list__item__delete-btn__image`);
 
+    $newListItemButtonImage.addEventListener("click", deleteItem);
+    
     $addItemFormInputTitle.value = '';
     $addItemFormInputAmount.value = '';
+}
+
+function deleteItem(event) {
+    const $listItem = event.target.parentElement.parentElement;
+
+    $listItem.remove();
 }
