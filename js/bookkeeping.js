@@ -4,6 +4,39 @@ const $addItemFormBtnExpense = document.querySelector(".addItem__btn__expense");
 $addItemFormBtnIncome.addEventListener("click", addItem);
 $addItemFormBtnExpense.addEventListener("click", addItem);
 
+function checkInput(newItemTitle, newItemAmount) {
+    if(newItemTitle.length === 0 && newItemAmount.length === 0) {
+        alert('내용과 금액을 입력하세요.');
+        return false;
+    } else if(newItemTitle.length === 0) {
+        alert('내용을 입력하세요.');
+        return false;
+    } else if(newItemAmount.length === 0) {
+        alert('금액을 입력하세요.');
+        return false;
+    }
+    return true;
+}
+
+function getDate() {
+    const date = new Date();
+    let thisYear = date.getFullYear();
+    let thisMonth = date.getMonth()+1;
+    let thisDate = date.getDate();
+
+    thisYear = String(thisYear).slice(2, 4);
+
+    if(thisMonth<10) {
+        thisMonth = '0' + thisMonth;
+    }
+
+    if(thisDate<10) {
+        thisDate = '0' + thisDate;
+    }
+
+    return `${thisYear}/${thisMonth}/${thisDate}`
+}
+
 function addItem(event) {
     const $addItemFormInputTitle = document.querySelector(".addItem__form__input__title");
     const $addItemFormInputAmount = document.querySelector(".addItem__form__input__amount");
@@ -11,14 +44,7 @@ function addItem(event) {
     const newItemTitle = $addItemFormInputTitle.value;
     const newItemAmount = $addItemFormInputAmount.value;
 
-    if(newItemTitle.length === 0 && newItemAmount.length === 0) {
-        alert('내용과 금액을 입력하세요.');
-        return;
-    } else if(newItemTitle.length === 0) {
-        alert('내용을 입력하세요.');
-        return;
-    } else if(newItemAmount.length === 0) {
-        alert('금액을 입력하세요.');
+    if(checkInput(newItemTitle, newItemAmount) === false) {
         return;
     }
     
@@ -29,26 +55,12 @@ function addItem(event) {
     const $newListItemAmount = document.createElement("span");
     const $newListItemButton = document.createElement("button");
     const $newListItemButtonImage = document.createElement("img");
-    
-    const date = new Date();
-    let thisYear = date.getFullYear();
-    let thisMonth = date.getMonth()+1;
-    let thisDate = date.getDate();
 
-    thisYear = String(thisYear).slice(2, 4);
-    if(thisMonth<10) {
-        thisMonth = '0' + thisMonth;
-    }
-    if(thisDate<10) {
-        thisDate = '0' + thisDate;
-    }
-
-    $newListItemDate.innerText = `${thisYear}/${thisMonth}/${thisDate}`;
+    $newListItemDate.innerText = getDate();
     $newListItemTitle.innerText = newItemTitle;
     $newListItemAmount.innerText = newItemAmount;
     $newListItemButtonImage.src = "svg/trash-can-solid.svg";
     
-
     $newListItem.appendChild($newListItemDiv);
     $newListItem.appendChild($newListItemDate);
     $newListItem.appendChild($newListItemTitle);
@@ -63,11 +75,11 @@ function addItem(event) {
     let classNamePrefix;
 
     if(clickedBtnName === 'INCOME') {
-        classNamePrefix = "income";
         $incomeList.appendChild($newListItem);
+        classNamePrefix = "income";
     } else if(clickedBtnName === "EXPENSE") {
-        classNamePrefix = "expense";
         $expenseList.appendChild($newListItem);
+        classNamePrefix = "expense";
     }
 
     $newListItem.classList.add(`${classNamePrefix}-list__item`);
