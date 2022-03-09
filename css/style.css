@@ -88,10 +88,14 @@ main h2 {
     font-size: 22px;
     margin-top: 20px;
 }
+.income-list__title div,
+.expense-list__title div {
+    width: 10%;
+}
 
 .income-list__title span, 
 .expense-list__title span {
-    width: 33%;
+    width: 26%;
     text-align: center;
 }
 
@@ -115,14 +119,27 @@ main h2 {
 .income-list__item,
 .expense-list__item {
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
 .income-list__item span,
 .expense-list__item span {
-    width: 33%;
-    margin: 5px 10px;
+    width: 26%;
+    margin-top: 10px;
     text-align: center;
+}
+
+.income-list__item div,
+.income-list__item button,
+.expense-list__item div,
+.expense-list__item button {
+    width: 10%;
+    text-align: left;
+    margin-top: 10px;
+    background-color: transparent;
+    border: none;
+    opacity: 0.8;
 }
 
 .income-total,
