@@ -26,9 +26,12 @@ function addItem(event) {
     }
     
     const $newListItem = document.createElement("li");
+    const $newListItemDiv = document.createElement("div");
     const $newListItemDate = document.createElement("span");
     const $newListItemTitle = document.createElement("span");
     const $newListItemAmount = document.createElement("span");
+    const $newListItemButton = document.createElement("button");
+    const $newListItemButtonImage = document.createElement("img");
     
     const date = new Date();
     let thisYear = date.getFullYear();
@@ -46,10 +49,15 @@ function addItem(event) {
     $newListItemDate.innerText = `${thisYear}/${thisMonth}/${thisDate}`;
     $newListItemTitle.innerText = newItemTitle;
     $newListItemAmount.innerText = newItemAmount;
+    $newListItemButtonImage.src = "svg/trash-can-solid.svg";
+    
 
+    $newListItem.appendChild($newListItemDiv);
     $newListItem.appendChild($newListItemDate);
     $newListItem.appendChild($newListItemTitle);
     $newListItem.appendChild($newListItemAmount);
+    $newListItem.appendChild($newListItemButton);
+    $newListItemButton.appendChild($newListItemButtonImage);
     
     
     const clickedBtnName = event.path[0].innerText;
@@ -67,6 +75,8 @@ function addItem(event) {
     $newListItemDate.classList.add(`${classNamePrefix}-list__item__date`);
     $newListItemTitle.classList.add(`${classNamePrefix}-list__item__title`);
     $newListItemAmount.classList.add(`${classNamePrefix}-list__item__amount`);
+    $newListItemButton.classList.add(`${classNamePrefix}-list__item__delete-btn`);
+    $newListItemButtonImage.classList.add(`${classNamePrefix}-list__item__delete-btn__image`);
 
     $addItemFormInputTitle.value = '';
     $addItemFormInputAmount.value = '';
