@@ -30,11 +30,20 @@ function addItem(event) {
     const $newListItemTitle = document.createElement("span");
     const $newListItemAmount = document.createElement("span");
     
-    const date = new Date()
-    const thisMonth = date.getMonth()+1;
-    const thisDate = date.getDate();
+    const date = new Date();
+    let thisYear = date.getFullYear();
+    let thisMonth = date.getMonth()+1;
+    let thisDate = date.getDate();
 
-    $newListItemDate.innerText = `${thisMonth}/${thisDate}`;
+    thisYear = String(thisYear).slice(2, 4);
+    if(thisMonth<10) {
+        thisMonth = '0' + thisMonth;
+    }
+    if(thisDate<10) {
+        thisDate = '0' + thisDate;
+    }
+
+    $newListItemDate.innerText = `${thisYear}/${thisMonth}/${thisDate}`;
     $newListItemTitle.innerText = newItemTitle;
     $newListItemAmount.innerText = newItemAmount;
 
