@@ -44,7 +44,7 @@ function handleAddBtnClick(event) {
     $addItemFormInputTitle.value = '';
     $addItemFormInputAmount.value = '';
 
-    if(checkInput(newItemTitle, newItemAmount) === false) {
+    if(checkInputLength(newItemTitle, newItemAmount) === false) {
         return;
     }
 
@@ -136,7 +136,7 @@ function saveItem(incomeItemArray, expenseItemArray) {
     localStorage.setItem(EXPENSE_ITEM_KEY, JSON.stringify(expenseItemArray));
 }
 
-function checkInput(newItemTitle, newItemAmount) {
+function checkInputLength(newItemTitle, newItemAmount) {
     if(newItemTitle.length === 0 && newItemAmount.length === 0) {
         alert('내용과 금액을 입력하세요.');
         return false;
