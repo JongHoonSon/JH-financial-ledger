@@ -10,8 +10,8 @@ let expenseItemArray = [];
 
 getItemFromLocalStorage();
 
-$addItemFormBtnIncome.addEventListener("click", handleAddBtnClick);
-$addItemFormBtnExpense.addEventListener("click", handleAddBtnClick);
+$addItemFormBtnIncome.addEventListener("click", handleItemAddBtnClick);
+$addItemFormBtnExpense.addEventListener("click", handleItemAddBtnClick);
 
 function getItemFromLocalStorage() {
     const savedIncomeItems = localStorage.getItem(INCOME_ITEM_KEY); 
@@ -34,7 +34,7 @@ function getItemFromLocalStorage() {
     }
 }
 
-function handleAddBtnClick(event) {
+function handleItemAddBtnClick(event) {
     const $addItemFormInputTitle = document.querySelector(".addItem__form__input__title");
     const $addItemFormInputAmount = document.querySelector(".addItem__form__input__amount");
     
