@@ -1,9 +1,3 @@
-const $incomeList = document.querySelector(".income-list");
-const $expenseList = document.querySelector(".expense-list");
-
-const $addItemFormInputTitle = document.querySelector(".addItem__form__input__title");
-const $addItemFormInputAmount = document.querySelector(".addItem__form__input__amount");
-
 const $addItemFormBtnIncome = document.querySelector(".addItem__btn__income");
 const $addItemFormBtnExpense = document.querySelector(".addItem__btn__expense");
 
@@ -11,6 +5,9 @@ $addItemFormBtnIncome.addEventListener("click", addItem);
 $addItemFormBtnExpense.addEventListener("click", addItem);
 
 function addItem(event) {
+    const $addItemFormInputTitle = document.querySelector(".addItem__form__input__title");
+    const $addItemFormInputAmount = document.querySelector(".addItem__form__input__amount");
+    
     const newItemTitle = $addItemFormInputTitle.value;
     const newItemAmount = $addItemFormInputAmount.value;
 
@@ -59,7 +56,9 @@ function addItem(event) {
     $newListItem.appendChild($newListItemButton);
     $newListItemButton.appendChild($newListItemButtonImage);
     
-    
+    const $incomeList = document.querySelector(".income-list");
+    const $expenseList = document.querySelector(".expense-list");
+
     const clickedBtnName = event.path[0].innerText;
     let classNamePrefix;
 
