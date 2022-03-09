@@ -74,7 +74,8 @@ function paintItem(newItem, newItemType) {
     const $newListItemAmount = document.createElement("span");
     const $newListItemButton = document.createElement("button");
     const $newListItemButtonImage = document.createElement("img");
-
+    
+    $newListItem.id = newItem.id;
     $newListItemDate.innerText = newItem.date;
     $newListItemTitle.innerText = newItem.title;
     $newListItemAmount.innerText = newItem.amount;
@@ -107,7 +108,6 @@ function paintItem(newItem, newItemType) {
     $newListItemButton.classList.add(`${classNamePrefix}-list__item__delete-btn`);
     $newListItemButtonImage.classList.add(`${classNamePrefix}-list__item__delete-btn__image`);
 
-    $newListItem.id = newItem.id;
     $newListItemButtonImage.addEventListener("click", deleteItem);
 }
 
