@@ -82,7 +82,7 @@ function paintItem(newItem, newItemType) {
     $newListItem.id = newItem.id;
     $newListItemDate.innerText = newItem.date;
     $newListItemTitle.innerText = newItem.title;
-    $newListItemAmount.innerText = newItem.amount;
+    $newListItemAmount.innerText = getCommaString(newItem.amount);
     $newListItemButtonImage.src = "svg/trash-can-solid.svg";
     
     $newListItem.appendChild($newListItemDiv);
@@ -199,7 +199,32 @@ function calculateTotalAmount() {
     const $expenseTotalAmount = document.querySelector('.expense-total__amount');
     const $balance__amount = document.querySelector('.balance__amount');
 
-    $incomeTotalAmount.innerText = incomeTotal;
-    $expenseTotalAmount.innerText = expenseTotal;
-    $balance__amount.innerText = balance;
+    $incomeTotalAmount.innerText = getCommaString(incomeTotal);
+    $expenseTotalAmount.innerText = getCommaString(expenseTotal);
+    $balance__amount.innerText = getCommaString(balance);
+}
+
+function getCommaString(balance) {
+    const balanceArray = String(balance).split('');
+    let splitedByThreeBalanceArray = [];
+
+    for(let i=balanceArray.length-1; i>=0; i=i-3) {
+        if(balanceArray[i-3] !== undefined) {
+            splitedByThreeBalanceArray.push(balanceArray.slice(i-2, i+1));
+        } else {
+            splitedByThreeBalanceArray.push(balanceArray.slice(0, i+1));
+        }
+    }
+
+    splitedByThreeBalanceArray = splitedByThreeBalanceArray.reverse();
+
+    const commaBalanceArray = [];
+
+    splitedByThreeBalanceArray.forEach(el => {
+        commaBalanceArray.push(el.join(''));
+    });
+
+    const commaString = commaBalanceArray.join(',');
+
+    return commaString;
 }
