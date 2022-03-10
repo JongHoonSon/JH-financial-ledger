@@ -32,6 +32,8 @@ function getItemFromLocalStorage() {
             paintItem(el, 'EXPENSE');
         });
     }
+
+    calculateTotalAmount();
 }
 
 function handleItemAddBtnClick(event) {
@@ -52,7 +54,7 @@ function handleItemAddBtnClick(event) {
         id: Date.now(),
         date: getDate(),
         title: newItemTitle,
-        amount: newItemAmount
+        amount: Number(newItemAmount)
     }
 
     const newItemType = event.path[0].innerText;
@@ -64,6 +66,7 @@ function handleItemAddBtnClick(event) {
     }
     paintItem(newItem, newItemType);
     saveItem(incomeItemArray, expenseItemArray);
+    calculateTotalAmount();
 } 
 
 function paintItem(newItem, newItemType) {
@@ -129,6 +132,7 @@ function deleteItem(event) {
 
     saveItem(incomeItemArray, expenseItemArray);
     $listItem.remove();
+    calculateTotalAmount();
 }
 
 function saveItem(incomeItemArray, expenseItemArray) {
@@ -167,4 +171,28 @@ function getDate() {
     }
 
     return `${thisYear}/${thisMonth}/${thisDate}`
+}
+
+function calculateTotalAmount() {
+    let incomeTotal = 0;
+    let expenseTotal = 0;
+    let balance = 0;
+
+    incomeItemArray.forEach(el => {
+        incomeTotal = incomeTotal + el.amount;
+    })
+
+    expenseItemArray.forEach(el => {
+        expenseTotal = expenseTotal + el.amount;
+    })
+
+    balance = incomeTotal - expenseTotal;
+
+    const $incomeTotalAmount = document.querySelector('.income-total__amount');
+    const $expenseTotalAmount = document.querySelector('.expense-total__amount');
+    const $balance__amount = document.querySelector('.balance__amount');
+
+    $incomeTotalAmount.innerText = incomeTotal;
+    $expenseTotalAmount.innerText = expenseTotal;
+    $balance__amount.innerText = balance;
 }
