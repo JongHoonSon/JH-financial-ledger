@@ -95,7 +95,7 @@ main h2 {
 
 .income-list__title span, 
 .expense-list__title span {
-    width: 26%;
+    width: 20%;
     text-align: center;
 }
 
@@ -123,17 +123,8 @@ main h2 {
     align-items: center;
 }
 
-.income-list__item span,
-.expense-list__item span {
-    width: 26%;
-    margin-top: 10px;
-    text-align: center;
-}
-
 .income-list__item div,
-.income-list__item button,
-.expense-list__item div,
-.expense-list__item button {
+.expense-list__item div {
     width: 10%;
     text-align: left;
     margin-top: 10px;
@@ -142,14 +133,22 @@ main h2 {
     opacity: 0.8;
 }
 
-.income-list__item > button > img,
-.expense-list__item > button > img {
+.income-list__item span,
+.expense-list__item span {
+    width: 20%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+.income-list__item__delete-btn__image,
+.expense-list__item__delete-btn__image {
     width: 20px;
     height: 20px;
 }
 
-.income-list__item > button > img:hover,
-.expense-list__item > button > img:hover {
+.income-list__item__delete-btn__image:hover,
+.expense-list__item__delete-btn__image:hover {
     cursor: pointer;
 }
 
@@ -173,34 +172,39 @@ main h2 {
 .addItem {
     width: 100%;
     height: 5%;
+    font-size: 30px;
+    font-family: 'Black Han Sans', sans-serif;
+    font-weight: 400;
 }
 
 .balance div {
     margin-top: 10px;
-    font-size: 22px;
 }
 
 .addItem__form {
+    display: flex;
+    justify-content: center;
+}
+
+.addItem__form__input {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.addItem__form input {
+.addItem__form__input input {
     width: 300px;
     height: 35px;
     margin: 5px;
     padding: 5px;
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 10px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 600;
+    font-family: 'Black Han Sans', sans-serif;
     font-size: 24px;
+    font-weight: 400;
     color: var(--black);
     text-align: center;
-    font-family: 'Black Han Sans', sans-serif;
-    font-weight: 400;
     box-shadow: var(--shadow);
 }
 

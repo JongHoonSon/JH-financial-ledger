@@ -37,9 +37,11 @@ function getItemFromLocalStorage() {
 }
 
 function handleItemAddBtnClick(event) {
+    const $addItemFormSelectCategory = document.querySelector(".addItem__form__select__category");
     const $addItemFormInputTitle = document.querySelector(".addItem__form__input__title");
     const $addItemFormInputAmount = document.querySelector(".addItem__form__input__amount");
     
+    const newItemCategory = $addItemFormSelectCategory.options[$addItemFormSelectCategory.selectedIndex].text;
     const newItemTitle = $addItemFormInputTitle.value;
     const newItemAmount = $addItemFormInputAmount.value;
 
@@ -54,6 +56,7 @@ function handleItemAddBtnClick(event) {
     const newItem = {
         id: Date.now(),
         date: getDate(),
+        category: newItemCategory,
         title: newItemTitle,
         amount: Number(newItemAmount)
     }
@@ -72,25 +75,28 @@ function handleItemAddBtnClick(event) {
 
 function paintItem(newItem, newItemType) {
     const $newListItem = document.createElement("li");
-    const $newListItemDiv = document.createElement("div");
+    const $newListItemDiv1 = document.createElement("div");
     const $newListItemDate = document.createElement("span");
+    const $newListItemCategory = document.createElement("span");
     const $newListItemTitle = document.createElement("span");
     const $newListItemAmount = document.createElement("span");
-    const $newListItemButton = document.createElement("button");
-    const $newListItemButtonImage = document.createElement("img");
+    const $newListItemDiv2 = document.createElement("div");
+    const $newListItemDeleteBtnImage = document.createElement("img");
     
     $newListItem.id = newItem.id;
     $newListItemDate.innerText = newItem.date;
+    $newListItemCategory.innerText = newItem.category;
     $newListItemTitle.innerText = newItem.title;
     $newListItemAmount.innerText = getCommaString(newItem.amount);
-    $newListItemButtonImage.src = "svg/trash-can-solid.svg";
+    $newListItemDeleteBtnImage.src = "svg/trash-can-solid.svg";
     
-    $newListItem.appendChild($newListItemDiv);
+    $newListItem.appendChild($newListItemDiv1);
     $newListItem.appendChild($newListItemDate);
+    $newListItem.appendChild($newListItemCategory);
     $newListItem.appendChild($newListItemTitle);
     $newListItem.appendChild($newListItemAmount);
-    $newListItem.appendChild($newListItemButton);
-    $newListItemButton.appendChild($newListItemButtonImage);
+    $newListItem.appendChild($newListItemDiv2);
+    $newListItemDiv2.appendChild($newListItemDeleteBtnImage);
     
     const $incomeList = document.querySelector(".income-list");
     const $expenseList = document.querySelector(".expense-list");
@@ -107,12 +113,13 @@ function paintItem(newItem, newItemType) {
 
     $newListItem.classList.add(`${classNamePrefix}-list__item`);
     $newListItemDate.classList.add(`${classNamePrefix}-list__item__date`);
+    $newListItemCategory.classList.add(`${classNamePrefix}-list__item__category`);
     $newListItemTitle.classList.add(`${classNamePrefix}-list__item__title`);
     $newListItemAmount.classList.add(`${classNamePrefix}-list__item__amount`);
-    $newListItemButton.classList.add(`${classNamePrefix}-list__item__delete-btn`);
-    $newListItemButtonImage.classList.add(`${classNamePrefix}-list__item__delete-btn__image`);
+    $newListItemDiv2.classList.add(`${classNamePrefix}-list__item__delete-btn`);
+    $newListItemDeleteBtnImage.classList.add(`${classNamePrefix}-list__item__delete-btn__image`);
 
-    $newListItemButtonImage.addEventListener("click", deleteItem);
+    $newListItemDeleteBtnImage.addEventListener("click", deleteItem);
 }
 
 function deleteItem(event) {

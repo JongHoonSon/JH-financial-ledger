@@ -21,6 +21,7 @@
                 <div class="income-list__title">
                     <div></div>
                     <span class="income-list__title__date">일자</span>
+                    <span class="income-list__title__category">분류</span>
                     <span class="income-list__title__title">내용</span>
                     <span class="income-list__title__amount">금액</span>
                     <div></div>
@@ -38,6 +39,7 @@
                 <div class="expense-list__title">
                     <div></div>
                     <span class="expense-list__title__date">일자</span>
+                    <span class="expense-list__title__category">분류</span>
                     <span class="expense-list__title__title">내용</span>
                     <span class="expense-list__title__amount">금액</span>
                     <div></div>
@@ -56,13 +58,22 @@
             <div>
                 <span> : </span>
                 <span class="balance__amount"></span>
-                <span>WON</span>
+                <span>원</span>
             </div>
         </div>
         <div class="addItem">
             <form class="addItem__form">
-                <input class="addItem__form__input__title" placeholder="내용을 입력하세요.">
-                <input class="addItem__form__input__amount" placeholder="금액을 입력하세요.">
+                <div class="addItem__form__select__category">
+                    <select class="addItem__form__select__category">
+                        <option value="식비">식비</option>
+                        <option value="통신비">통신비</option>
+                        <option value="여가비">여가비</option>
+                    </select>
+                </div>
+                <div class="addItem__form__input">
+                    <input class="addItem__form__input__title" placeholder="내용을 입력하세요.">
+                    <input class="addItem__form__input__amount" placeholder="금액을 입력하세요.">
+                </div>
             </form>
             <div class="addItem__btns">
                 <button class="addItem__btn__income">Income</button>
