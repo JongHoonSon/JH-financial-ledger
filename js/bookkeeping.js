@@ -43,12 +43,13 @@ function handleItemAddBtnClick(event) {
     const newItemTitle = $addItemFormInputTitle.value;
     const newItemAmount = $addItemFormInputAmount.value;
 
-    $addItemFormInputTitle.value = '';
-    $addItemFormInputAmount.value = '';
-
-    if(checkInputLength(newItemTitle, newItemAmount) === false) {
+    
+    if(checkInput(newItemTitle, newItemAmount) === false) {
         return;
     }
+    
+    $addItemFormInputTitle.value = '';
+    $addItemFormInputAmount.value = '';
 
     const newItem = {
         id: Date.now(),
@@ -140,17 +141,23 @@ function saveItem(incomeItemArray, expenseItemArray) {
     localStorage.setItem(EXPENSE_ITEM_KEY, JSON.stringify(expenseItemArray));
 }
 
-function checkInputLength(newItemTitle, newItemAmount) {
+function checkInput(newItemTitle, newItemAmount) {
     if(newItemTitle.length === 0 && newItemAmount.length === 0) {
-        alert('내용과 금액을 입력하세요.');
+        alert('내용과 금액을 입력해 주세요.');
         return false;
     } else if(newItemTitle.length === 0) {
-        alert('내용을 입력하세요.');
+        alert('내용을 입력해 주세요.');
         return false;
     } else if(newItemAmount.length === 0) {
-        alert('금액을 입력하세요.');
+        alert('금액을 입력해 주세요.');
         return false;
     }
+
+    if (isNaN(newItemAmount)) {
+        alert('금액을 숫자 형식으로 입력해 주세요.');
+        return false;
+    }
+
     return true;
 }
 
