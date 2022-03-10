@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
     </style>
 </head>
+
 <body>
     <header>
         <h1>JH Personal Financial Ledger <i class="fa-solid fa-file-invoice-dollar"></i></h1>
@@ -63,12 +65,22 @@
         </div>
         <div class="addItem">
             <form class="addItem__form">
-                <div class="addItem__form__select">
-                    <select class="addItem__form__select__category">
-                        <option value="식비">식비</option>
-                        <option value="통신비">통신비</option>
-                        <option value="여가비">여가비</option>
-                    </select>
+                <div class="addItem__form__radio__select-wrap">
+                    <div class="addItem__form__radios">
+                        <div class="addItem__form__radio-wrap">
+                            <input type="radio" id="incomeRadio" name="incomeORexpense" value="INCOME">
+                        </div>
+                        <div class="addItem__form__radio-wrap">
+                            <input type="radio" id="expenseRadio" name="incomeORexpense" value="EXPENSE">
+                        </div>
+                    </div>
+                    <div class="addItem__form__category-wrap">
+                        <select class="addItem__form__category">
+                            <option value="식비">식비</option>
+                            <option value="통신비">통신비</option>
+                            <option value="여가비">여가비</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="addItem__form__input">
                     <input class="addItem__form__input__title" placeholder="내용을 입력하세요.">
@@ -85,4 +97,5 @@
     <script src="js/bookkeeping.js"></script>
     <script src="https://kit.fontawesome.com/4bc00e0a4c.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

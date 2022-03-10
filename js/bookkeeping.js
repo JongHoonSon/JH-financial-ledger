@@ -37,7 +37,7 @@ function getItemFromLocalStorage() {
 }
 
 function handleItemAddBtnClick(event) {
-    const $addItemFormSelectCategory = document.querySelector(".addItem__form__select__category");
+    const $addItemFormSelectCategory = document.querySelector(".addItem__form__category");
     const $addItemFormInputTitle = document.querySelector(".addItem__form__input__title");
     const $addItemFormInputAmount = document.querySelector(".addItem__form__input__amount");
     
