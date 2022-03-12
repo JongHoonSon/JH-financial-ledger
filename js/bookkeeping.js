@@ -1,6 +1,4 @@
-const $addItemFormBtnIncome = document.querySelector(".addItem__btn__income");
-const $addItemFormBtnExpense = document.querySelector(".addItem__btn__expense");
-
+const $addItemAddBtn = document.querySelector(".addItem__btn");
 
 const INCOME_ITEM_KEY = "INCOME_ITEM";
 const EXPENSE_ITEM_KEY = "EXPENSE_ITEM";
@@ -10,8 +8,7 @@ let expenseItemArray = [];
 
 getItemFromLocalStorage();
 
-$addItemFormBtnIncome.addEventListener("click", handleItemAddBtnClick);
-$addItemFormBtnExpense.addEventListener("click", handleItemAddBtnClick);
+$addItemAddBtn.addEventListener("click", handleItemAddBtnClick);
 
 function getItemFromLocalStorage() {
     const savedIncomeItems = localStorage.getItem(INCOME_ITEM_KEY); 
@@ -61,13 +58,22 @@ function handleItemAddBtnClick(event) {
         amount: Number(newItemAmount)
     }
 
-    const newItemType = event.path[0].innerText;
+    // const newItemType = event.path[0].innerText;
 
-    if(newItemType === 'INCOME') {
+    const $addItemFormRadioList = document.getElementsByName('incomeORexpense');
+    let newItemType;
+
+    if($addItemFormRadioList[0].checked === false && $addItemFormRadioList[1].checked === false) {
+        alert('수입 또는 지출 버튼을 클릭해 주세요.');
+        return;
+    } else if ($addItemFormRadioList[0].checked === true) {
+        newItemType = 'INCOME';
         incomeItemArray.push(newItem);
-    } else if(newItemType === "EXPENSE") {
+    } else {
+        newItemType = 'EXPENSE';
         expenseItemArray.push(newItem);
     }
+
     paintItem(newItem, newItemType);
     saveItem(incomeItemArray, expenseItemArray);
     calculateTotalAmount();

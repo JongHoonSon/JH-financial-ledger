@@ -299,12 +299,6 @@ main h2 {
     font-weight: 400;
 }
 
-.addItem__btns {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 @keyframes scaler {
     0% {
         
@@ -315,9 +309,8 @@ main h2 {
     }
 }
 
-.addItem__btn__income,
-.addItem__btn__expense {
-    width: 130px;
+.addItem__btn {
+    width: 200px;
     height: 50px;
     padding: 10px;
     margin: 20px;
@@ -329,17 +322,10 @@ main h2 {
     text-transform: uppercase;
     box-shadow: var(--shadow);
     border: var(--border);
+    background-color: rgba(0, 128, 0, 0.8);
 }
 
-.addItem__btn__income:hover,
-.addItem__btn__expense:hover {
+.addItem__btn:hover {
     cursor: pointer;
     animation: scaler 0.2s ease-in-out forwards;
-}
-
-.addItem__btn__expense {
-    background-color: var(--expense-color);
-}
-.addItem__btn__income {
-    background-color: var(--income-color);
 }
