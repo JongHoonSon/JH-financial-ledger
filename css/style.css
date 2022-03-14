@@ -322,7 +322,8 @@ main h2 {
     text-transform: uppercase;
     box-shadow: var(--shadow);
     border: var(--border);
-    background-color: rgba(0, 128, 0, 0.8);
+    color: var(--black);
+    background-color: rgba(0, 128, 0, 0.7);
 }
 
 .addItem__btn:hover {

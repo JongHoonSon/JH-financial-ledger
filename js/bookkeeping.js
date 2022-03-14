@@ -56,7 +56,7 @@ function handleItemAddBtnClick(event) {
     const newItem = {
         id: Date.now(),
         type: newItemType,
-        date: getItemDate(),
+        date: getTodayDate(),
         category: newItemCategory,
         title: newItemTitle,
         amount: Number(newItemAmount)
@@ -178,7 +178,7 @@ function checkAddItemInputIsEmpty(newItemTitle, newItemAmount) {
     return false;
 }
 
-function getItemDate() {
+function getTodayDate() {
     const date = new Date();
     let thisYear = date.getFullYear();
     let thisMonth = date.getMonth()+1;
