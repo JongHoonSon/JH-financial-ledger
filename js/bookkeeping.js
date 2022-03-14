@@ -1,4 +1,4 @@
-const $addItemAddBtn = document.querySelector(".addItem__btn");
+const $addItemAddBtn = document.querySelector(".addItem__add-btn");
 
 const INCOME_ITEM_KEY = "INCOME_ITEM";
 const EXPENSE_ITEM_KEY = "EXPENSE_ITEM";
@@ -7,6 +7,7 @@ let incomeItemArray = [];
 let expenseItemArray = [];
 
 getItemFromLocalStorage();
+setCalender(getTodayDate());
 
 $addItemAddBtn.addEventListener("click", handleItemAddBtnClick);
 
@@ -33,33 +34,40 @@ function getItemFromLocalStorage() {
     calculateTotalAmount();
 }
 
+function setCalender(calendarDate) {
+    const $addItemFormCalendar = document.querySelector('.addItem__form__calendar');
+    $addItemFormCalendar.value = calendarDate;
+}
+
 function handleItemAddBtnClick(event) {
     const $addItemFormRadioList = document.getElementsByName('incomeORexpense');
-    const $addItemFormSelectCategory = document.querySelector(".addItem__form__category");
-    const $addItemFormInputTitle = document.querySelector(".addItem__form__input__title");
-    const $addItemFormInputAmount = document.querySelector(".addItem__form__input__amount");
+    const $addItemFormSelect = document.querySelector(".addItem__form__select");
+    const $addItemFormTextTitle = document.querySelector(".addItem__form__text__title");
+    const $addItemFormTextAmount = document.querySelector(".addItem__form__text__amount");
+    const $addItemFormCalendar = document.querySelector('.addItem__form__calendar');
     
     const newItemType = getAddItemType($addItemFormRadioList[0].checked, $addItemFormRadioList[1].checked);
-    const newItemCategory = $addItemFormSelectCategory.options[$addItemFormSelectCategory.selectedIndex].text;
-    const newItemTitle = $addItemFormInputTitle.value;
-    const newItemAmount = $addItemFormInputAmount.value;
+    const newItemCategory = $addItemFormSelect.options[$addItemFormSelect.selectedIndex].text;
+    const newItemTitle = $addItemFormTextTitle.value;
+    const newItemAmount = $addItemFormTextAmount.value;
+    const newItemDate = $addItemFormCalendar.value;
 
     console.log(newItemType);
 
-    if(newItemType === false || checkAddItemInputIsEmpty(newItemTitle, newItemAmount)) {
+    if(newItemType === false || checkAddItemTextIsEmpty(newItemTitle, newItemAmount)) {
         return;
     }
     
-    $addItemFormInputTitle.value = '';
-    $addItemFormInputAmount.value = '';
+    $addItemFormTextTitle.value = '';
+    $addItemFormTextAmount.value = '';
 
     const newItem = {
         id: Date.now(),
         type: newItemType,
-        date: getTodayDate(),
+        date: newItemDate,
         category: newItemCategory,
         title: newItemTitle,
-        amount: Number(newItemAmount)
+        amount: Number(newItemAmount),
     }
 
     if(newItem.type === 'INCOME') {
@@ -158,7 +166,7 @@ function getAddItemType(typeIncome, typeExpense) {
     }
 }
 
-function checkAddItemInputIsEmpty(newItemTitle, newItemAmount) {
+function checkAddItemTextIsEmpty(newItemTitle, newItemAmount) {
     if(newItemTitle.length === 0 && newItemAmount.length === 0) {
         alert('내용과 금액을 입력해 주세요.');
         return true;
