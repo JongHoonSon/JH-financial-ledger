@@ -191,16 +191,18 @@ main h2 {
 }
 
 .addItem__form {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .addItem__form__radios__and__select-wrap {
+    width: 33%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .addItem__form__radios {
@@ -272,6 +274,7 @@ main h2 {
 }
 
 .addItem__form__text {
+    width: 33%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -279,7 +282,7 @@ main h2 {
 }
 
 .addItem__form__text input {
-    width: 200px;
+    width: 250px;
     height: 35px;
     margin: 5px;
     padding: 5px;
@@ -293,10 +296,8 @@ main h2 {
     box-shadow: var(--shadow);
 }
 
-.addItem__form input::placeholder {
+.addItem__form__text input::placeholder {
     font-size: 16px;
-    font-family: 'Black Han Sans', sans-serif;
-    font-weight: 400;
 }
 
 @keyframes scaler {
@@ -307,6 +308,33 @@ main h2 {
     100% {
         transform: scale(1.1);
     }
+}
+
+.addItem__form__calendar-wrap {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 10px;
+}
+
+.addItem__form__calendar {
+    margin: 5px;
+    width: 120px;
+    padding: 2px;
+    font-family: 'Black Han Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    border: var(--border);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    color:var(--black);
+}
+
+.addItem__form__calendar::placeholder {
+    font-size: 14px;
 }
 
 .addItem__add-btn {
