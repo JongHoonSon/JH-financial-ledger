@@ -196,7 +196,7 @@ main h2 {
     align-items: center;
 }
 
-.addItem__form__radio__select-wrap {
+.addItem__form__radios__and__select-wrap {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -232,7 +232,7 @@ main h2 {
     transform: scale(1.3);
 }
 
-.addItem__form__category-wrap {
+.addItem__form__select-wrap {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -240,18 +240,18 @@ main h2 {
     margin-right: 15px;
 }
 
-.addItem__form__category {
+.addItem__form__select {
     -o-appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
 
-.addItem__form__category::-ms-expand {
+.addItem__form__select::-ms-expand {
     display: none;
 }
 
-.addItem__form__category {
+.addItem__form__select {
     width: 80px;
     height: 45px;
     border: var(--border);
@@ -266,19 +266,19 @@ main h2 {
     box-shadow: var(--shadow);
 }
 
-.addItem__form__category option {
+.addItem__form__select option {
     background: rgba(0, 0, 0, 0.5);
     color: rgba(255, 255, 0, 0.8);
 }
 
-.addItem__form__input {
+.addItem__form__text {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.addItem__form__input input {
+.addItem__form__text input {
     width: 200px;
     height: 35px;
     margin: 5px;
@@ -309,7 +309,7 @@ main h2 {
     }
 }
 
-.addItem__btn {
+.addItem__add-btn {
     width: 200px;
     height: 50px;
     padding: 10px;
@@ -326,7 +326,7 @@ main h2 {
     background-color: rgba(0, 128, 0, 0.7);
 }
 
-.addItem__btn:hover {
+.addItem__add-btn:hover {
     cursor: pointer;
     animation: scaler 0.2s ease-in-out forwards;
 }
