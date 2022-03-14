@@ -34,16 +34,19 @@ function getItemFromLocalStorage() {
 }
 
 function handleItemAddBtnClick(event) {
+    const $addItemFormRadioList = document.getElementsByName('incomeORexpense');
     const $addItemFormSelectCategory = document.querySelector(".addItem__form__category");
     const $addItemFormInputTitle = document.querySelector(".addItem__form__input__title");
     const $addItemFormInputAmount = document.querySelector(".addItem__form__input__amount");
     
+    const newItemType = getAddItemType($addItemFormRadioList[0].checked, $addItemFormRadioList[1].checked);
     const newItemCategory = $addItemFormSelectCategory.options[$addItemFormSelectCategory.selectedIndex].text;
     const newItemTitle = $addItemFormInputTitle.value;
     const newItemAmount = $addItemFormInputAmount.value;
 
-    
-    if(checkInput(newItemTitle, newItemAmount) === false) {
+    console.log(newItemType);
+
+    if(newItemType === false || checkAddItemInputIsEmpty(newItemTitle, newItemAmount)) {
         return;
     }
     
@@ -52,34 +55,24 @@ function handleItemAddBtnClick(event) {
 
     const newItem = {
         id: Date.now(),
-        date: getDate(),
+        type: newItemType,
+        date: getItemDate(),
         category: newItemCategory,
         title: newItemTitle,
         amount: Number(newItemAmount)
     }
 
-    // const newItemType = event.path[0].innerText;
-
-    const $addItemFormRadioList = document.getElementsByName('incomeORexpense');
-    let newItemType;
-
-    if($addItemFormRadioList[0].checked === false && $addItemFormRadioList[1].checked === false) {
-        alert('수입 또는 지출 버튼을 클릭해 주세요.');
-        return;
-    } else if ($addItemFormRadioList[0].checked === true) {
-        newItemType = 'INCOME';
-        incomeItemArray.push(newItem);
-    } else {
-        newItemType = 'EXPENSE';
-        expenseItemArray.push(newItem);
+    if(newItem.type === 'INCOME') {
+        incomeItemArray.push(newItem)
+    } else if(newItem.type === 'EXPENSE') {
+        expenseItemArray.push(newItem)
     }
-
-    paintItem(newItem, newItemType);
+    paintItem(newItem);
     saveItem(incomeItemArray, expenseItemArray);
     calculateTotalAmount();
 } 
 
-function paintItem(newItem, newItemType) {
+function paintItem(newItem) {
     const $newListItem = document.createElement("li");
     const $newListItemDiv1 = document.createElement("div");
     const $newListItemDate = document.createElement("span");
@@ -109,10 +102,10 @@ function paintItem(newItem, newItemType) {
 
     let classNamePrefix;
 
-    if(newItemType === 'INCOME') {
+    if(newItem.type === 'INCOME') {
         $incomeList.appendChild($newListItem);
         classNamePrefix = "income";
-    } else if(newItemType === "EXPENSE") {
+    } else if(newItem.type === "EXPENSE") {
         $expenseList.appendChild($newListItem);
         classNamePrefix = "expense";
     }
@@ -154,27 +147,38 @@ function saveItem(incomeItemArray, expenseItemArray) {
     localStorage.setItem(EXPENSE_ITEM_KEY, JSON.stringify(expenseItemArray));
 }
 
-function checkInput(newItemTitle, newItemAmount) {
+function getAddItemType(typeIncome, typeExpense) {
+    if(typeIncome === false && typeExpense === false) {
+        alert('수입 또는 지출 버튼을 클릭해 주세요.');
+        return false;
+    } else if(typeIncome === true) {
+        return 'INCOME';
+    } else if(typeExpense === true) {
+        return 'EXPENSE';
+    }
+}
+
+function checkAddItemInputIsEmpty(newItemTitle, newItemAmount) {
     if(newItemTitle.length === 0 && newItemAmount.length === 0) {
         alert('내용과 금액을 입력해 주세요.');
-        return false;
+        return true;
     } else if(newItemTitle.length === 0) {
         alert('내용을 입력해 주세요.');
-        return false;
+        return true;
     } else if(newItemAmount.length === 0) {
         alert('금액을 입력해 주세요.');
-        return false;
+        return true;
     }
 
     if (isNaN(newItemAmount)) {
         alert('금액을 숫자 형식으로 입력해 주세요.');
-        return false;
+        return true;
     }
 
-    return true;
+    return false;
 }
 
-function getDate() {
+function getItemDate() {
     const date = new Date();
     let thisYear = date.getFullYear();
     let thisMonth = date.getMonth()+1;
