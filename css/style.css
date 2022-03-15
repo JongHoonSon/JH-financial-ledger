@@ -147,10 +147,6 @@ main h2 {
 .expense-list__item__delete-btn__image {
     width: 20px;
     height: 20px;
-}
-
-.income-list__item__delete-btn__image:hover,
-.expense-list__item__delete-btn__image:hover {
     cursor: pointer;
 }
 
@@ -220,6 +216,7 @@ main h2 {
     margin-right: 10px;
     border-radius: 50%;
     border: var(--border);
+    cursor: pointer;
 }
 
 .addItem__form__radio-wrap:first-child input[type='radio'] {
@@ -266,6 +263,7 @@ main h2 {
     color: rgba(0, 0, 0, 0.8);
     text-align: center;
     box-shadow: var(--shadow);
+    cursor: pointer;
 }
 
 .addItem__form__select option {
@@ -298,16 +296,6 @@ main h2 {
 
 .addItem__form__text input::placeholder {
     font-size: 16px;
-}
-
-@keyframes scaler {
-    0% {
-        
-    }
-
-    100% {
-        transform: scale(1.1);
-    }
 }
 
 .addItem__form__calendar-wrap {
@@ -352,9 +340,9 @@ main h2 {
     border: var(--border);
     color: var(--black);
     background-color: rgba(0, 128, 0, 0.7);
+    cursor: pointer;
 }
 
-.addItem__add-btn:hover {
-    cursor: pointer;
-    animation: scaler 0.2s ease-in-out forwards;
+.addItem__add-btn:active {
+    transform: scale(0.98);
 }
