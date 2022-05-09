@@ -1,103 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JH-Personal-Financial-Ledger</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1>JH Personal Financial Ledger <i class="fa-solid fa-file-invoice-dollar"></i></h1>
+      <h1>
+        JH Personal Financial Ledger
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+      </h1>
     </header>
     <main>
-        <div class="expense-income">
-            <div class="income">
-                <h2>Income</h2>
-                <div class="income-list__title">
-                    <div></div>
-                    <span class="income-list__title__date">일자</span>
-                    <span class="income-list__title__category">분류</span>
-                    <span class="income-list__title__title">내용</span>
-                    <span class="income-list__title__amount">금액</span>
-                    <div></div>
-                </div>
-                <ul class="income-list">
-                </ul>
-                <div class="income-total">
-                    <span>수입 합계 : </span>
-                    <span class="income-total__amount"></span>
-                    <span>원</span>
-                </div>
-            </div>
-            <div class="expense">
-                <h2>Expense</h2>
-                <div class="expense-list__title">
-                    <div></div>
-                    <span class="expense-list__title__date">일자</span>
-                    <span class="expense-list__title__category">분류</span>
-                    <span class="expense-list__title__title">내용</span>
-                    <span class="expense-list__title__amount">금액</span>
-                    <div></div>
-                </div>
-                <ul class="expense-list">
-                </ul>
-                <div class="expense-total">
-                    <span>지출 합계 : </span>
-                    <span class="expense-total__amount"></span>
-                    <span>원</span>
-                </div>
-            </div>
+      <div class="expense-income">
+        <div class="income">
+          <h2>Income</h2>
+          <div class="income-list__title">
+            <div></div>
+            <span class="income-list__title__date">일자</span>
+            <span class="income-list__title__category">분류</span>
+            <span class="income-list__title__title">내용</span>
+            <span class="income-list__title__amount">금액</span>
+            <div></div>
+          </div>
+          <ul class="income-list"></ul>
+          <div class="income-total">
+            <span>수입 합계 : </span>
+            <span class="income-total__amount"></span>
+            <span>원</span>
+          </div>
         </div>
-        <div class="balance">
-            <h2>Your Balance</h2>
-            <div>
-                <span> : </span>
-                <span class="balance__amount"></span>
-                <span>원</span>
-            </div>
+        <div class="expense">
+          <h2>Expense</h2>
+          <div class="expense-list__title">
+            <div></div>
+            <span class="expense-list__title__date">일자</span>
+            <span class="expense-list__title__category">분류</span>
+            <span class="expense-list__title__title">내용</span>
+            <span class="expense-list__title__amount">금액</span>
+            <div></div>
+          </div>
+          <ul class="expense-list"></ul>
+          <div class="expense-total">
+            <span>지출 합계 : </span>
+            <span class="expense-total__amount"></span>
+            <span>원</span>
+          </div>
         </div>
-        <div class="addItem">
-            <form class="addItem__form">
-                <div class="addItem__form__radios__and__select-wrap">
-                    <div class="addItem__form__radios">
-                        <div class="addItem__form__radio-wrap">
-                            <input type="radio" id="incomeRadio" name="incomeORexpense" value="INCOME">
-                        </div>
-                        <div class="addItem__form__radio-wrap">
-                            <input type="radio" id="expenseRadio" name="incomeORexpense" value="EXPENSE">
-                        </div>
-                    </div>
-                    <div class="addItem__form__select-wrap">
-                        <select class="addItem__form__select">
-                            <option value="식비">식비</option>
-                            <option value="통신비">통신비</option>
-                            <option value="여가비">여가비</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="addItem__form__text">
-                    <input class="addItem__form__text__title" placeholder="내용을 입력하세요.">
-                    <input class="addItem__form__text__amount" placeholder="금액을 입력하세요.">
-                </div>
-                <div class="addItem__form__calendar-wrap">
-                    <input class="addItem__form__calendar" placeholder="YY/MM/DD">
-                </div>
-            </form>
-            <div class="addItem__add-btn-wrap">
-                <button class="addItem__add-btn">ADD</button>
-            </div>
+      </div>
+      <div class="balance">
+        <h2>Your Balance</h2>
+        <div>
+          <span> : </span>
+          <span class="balance__amount"></span>
+          <span>원</span>
         </div>
+      </div>
+      <div class="addItem">
+        <form class="addItem__form">
+          <div class="addItem__form__radios__and__select-wrap">
+            <div class="addItem__form__radios">
+              <div class="addItem__form__radio-wrap">
+                <input
+                  type="radio"
+                  id="incomeRadio"
+                  name="incomeORexpense"
+                  value="INCOME"
+                />
+              </div>
+              <div class="addItem__form__radio-wrap">
+                <input
+                  type="radio"
+                  id="expenseRadio"
+                  name="incomeORexpense"
+                  value="EXPENSE"
+                />
+              </div>
+            </div>
+            <div class="addItem__form__select-wrap">
+              <select class="addItem__form__select">
+                <option value="식비">식비</option>
+                <option value="통신비">통신비</option>
+                <option value="여가비">여가비</option>
+                <option value="정비">정기</option>
+                <option value="일회성">일회성</option>
+              </select>
+            </div>
+          </div>
+          <div class="addItem__form__text">
+            <input
+              class="addItem__form__text__title"
+              placeholder="내용을 입력하세요."
+            />
+            <input
+              class="addItem__form__text__amount"
+              placeholder="금액을 입력하세요."
+            />
+          </div>
+          <div class="addItem__form__calendar-wrap">
+            <input class="addItem__form__calendar" placeholder="YY/MM/DD" />
+          </div>
+        </form>
+        <div class="addItem__add-btn-wrap">
+          <button class="addItem__add-btn">ADD</button>
+        </div>
+      </div>
     </main>
     <script src="js/login.js"></script>
     <script src="js/bookkeeping.js"></script>
-    <script src="https://kit.fontawesome.com/4bc00e0a4c.js" crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://kit.fontawesome.com/4bc00e0a4c.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
